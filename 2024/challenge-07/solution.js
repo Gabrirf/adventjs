@@ -2,7 +2,7 @@ function fixPackagesR(packages) {
   const match = /\(([^()]*)\)/;
   const findAndReverseRecursive = stringParenthesis => {
     const stringWithoutParenthesis = stringParenthesis.replace(match, (_match, g1) => 
-      g1.split('').reverse().join('')
+      g1.split('').reverse().join(''),
     )
     return stringWithoutParenthesis.includes('(')
       ? findAndReverseRecursive(stringWithoutParenthesis)
@@ -14,9 +14,9 @@ function fixPackagesR(packages) {
 function fixPackages(packages) {
   const match = /\(([^()]*)\)/;
   let sortedPackages = packages;
-  while(sortedPackages.match(match)){
+  while (sortedPackages.match(match)) {
     sortedPackages = sortedPackages.replace(match, (_match, g1) => 
-      g1.split('').reverse().join('')
+      g1.split('').reverse().join(''),
     )
   }
   return sortedPackages;

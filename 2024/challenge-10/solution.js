@@ -6,11 +6,11 @@ function compile(instructions) {
     'DEC': (x) => { registry[x]-- }, 
     'JMP': (x, y) => registry[x] === 0 && parseInt(y) - 1, 
   }
-  for(let i = 0; i < instructions.length; i++){
+  for (let i = 0; i < instructions.length; i++) {
     const [command, register1, register2] = instructions[i].split(' ');
-    if(!registry[register1]) registry[register1] = 0;
+    if (!registry[register1]) registry[register1] = 0;
     const next = commands[command](register1, register2);
-    if(typeof next === 'number') i = next;
+    if (typeof next === 'number') i = next;
   }
   return registry.A;
 }
@@ -20,7 +20,7 @@ const instructions = [
   'INC C', // incrementa el valor del registro 'C'
   'JMP C 1', // salta a la instrucción en el índice 1 si 'C' es 0
   'MOV C A', // copia el registro 'C' al registro 'a',
-  'INC A' // incrementa el valor del registro 'a'
+  'INC A', // incrementa el valor del registro 'a'
 ]
 
 console.log(compile(instructions)) // -> 2
@@ -37,9 +37,9 @@ console.log(compile(instructions)) // -> 2
  */
 
  console.log(compile([
-  "MOV 2 X",
-  "DEC X",
-  "DEC X",
-  "JMP X 1",
-  "MOV X A"
+  'MOV 2 X',
+  'DEC X',
+  'DEC X',
+  'JMP X 1',
+  'MOV X A',
 ])) // -> -2

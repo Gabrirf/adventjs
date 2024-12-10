@@ -9,7 +9,7 @@ function organizeInventoryReduce(inventory) {
 
 function organizeInventory(inventory) {
   const inventoryObject = Object.fromEntries(inventory.map(i => [i.category, {}]));
-  for(const item of inventory){
+  for (const item of inventory) {
     inventoryObject[item.category][item.name] = inventoryObject[item.category][item.name]
       ? inventoryObject[item.category][item.name] + item.quantity
       : item.quantity;
@@ -22,7 +22,7 @@ const inventory = [
   { name: 'car', quantity: 3, category: 'toys' },
   { name: 'ball', quantity: 2, category: 'sports' },
   { name: 'car', quantity: 2, category: 'toys' },
-  { name: 'racket', quantity: 4, category: 'sports' }
+  { name: 'racket', quantity: 4, category: 'sports' },
 ]
 
 console.log(organizeInventory(inventory))
@@ -41,7 +41,7 @@ console.log(organizeInventory(inventory))
 const inventory2 = [
   { name: 'book', quantity: 10, category: 'education' },
   { name: 'book', quantity: 5, category: 'education' },
-  { name: 'paint', quantity: 3, category: 'art' }
+  { name: 'paint', quantity: 3, category: 'art' },
 ]
 
 console.log(organizeInventory(inventory2))
